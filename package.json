@@ -1,0 +1,27 @@
+{
+  "name": "exam-1",
+  "version": "1.0.0",
+  "description": "1DV023 exam 1",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/1dv023/oc222ba-examination-1.git"
+  },
+  "keywords": [
+    "node",
+    "javascript",
+    "webscraper"
+  ],
+  "author": "Olga Christensen oc222ba",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/1dv023/oc222ba-examination-1/issues"
+  },
+  "homepage": "https://github.com/1dv023/oc222ba-examination-1#readme",
+  "devDependencies": {
+    "standard": "^10.0.3"
+  }
+}
