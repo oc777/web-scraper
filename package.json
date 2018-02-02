@@ -24,5 +24,8 @@
   "homepage": "https://github.com/1dv023/oc222ba-examination-1#readme",
   "devDependencies": {
     "standard": "*"
+  },
+  "dependencies": {
+    "fetch": "^1.1.0"
   }
 }
