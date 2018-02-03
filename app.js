@@ -1,12 +1,12 @@
 'use strict'
 
-const fetch = require('fetch').fetchUrl
-const dom = require('jsdom')
-const calendar = require('./lib/calendar')
+const jq = require('cheerio')
+const client = require('./lib/client')
 
-// Check the arguments.
+// Check that the url argument was provided
 let url = process.argv.slice(2)
 
+// If not - exit application
 if (url.length === 0) {
   console.log('ERROR: No URL provided.')
   process.exit(0)
@@ -14,25 +14,23 @@ if (url.length === 0) {
 
 // calendar, cinema, dinner
 let urls = []
+
+/**
+ * Gets the links to calendar, cinema and restaurant
+ * and packs them into urls array
+ *
+ * @param {string} url
+ */
 const getUrls = url => {
-
-}
-
-const get = url => {
-  return new Promise((resolve, reject) => {
-    fetch(url, (error, meta, body) => {
-      if (error) {
-        return reject(error)
-      }
-
-      return resolve([meta, body])
+  client.get(url).then(values => {
+    const html = values[1].toString()
+    const $ = jq.load(html)
+    $('a').map(function () {
+      urls.push($(this).attr('href'))
     })
+    console.log(urls) // full
   })
 }
 
-get(url[0]).then(value => {
-  console.log(value[0])
-  console.log(value[1].toString())
-})
-
-// calendar.scrape(url[0])
+getUrls(url[0])
+console.log(urls) // empty
