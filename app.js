@@ -12,4 +12,4 @@ if (url.length === 0) {
   process.exit(0)
 }
 
-helper.getUrls(url[0]).then(res => calendar.html(res[0]))
+helper.getUrls(url[0]).then(res => calendar.html(res[0])).then(cal => console.log(cal))
