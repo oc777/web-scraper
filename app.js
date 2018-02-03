@@ -31,6 +31,4 @@ const getUrls = async (url) => {
   return urls
 }
 
-getUrls(url[0]).then(res => console.log(res))
-
-// calendar.html(urls[0])
+getUrls(url[0]).then(res => calendar.html(res[0]))
