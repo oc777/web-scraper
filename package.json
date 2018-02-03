@@ -26,6 +26,7 @@
     "standard": "*"
   },
   "dependencies": {
-    "fetch": "^1.1.0"
+    "fetch": "^1.1.0",
+    "jsdom": "^11.6.2"
   }
 }
