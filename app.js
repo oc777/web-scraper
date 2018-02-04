@@ -17,17 +17,27 @@ if (url.length === 0) {
 (async() => {
   try {
     // get urls of Calendar, Cinema, Dinner pages
-    const urls = await helper.getUrls(url[0])
+    process.stdout.write('Fetching links...   ')
+    const urls = await helper.getUrls(url[0]).then(console.log('OK'))
 
-    const calendarPromise = calendar.html(urls[0])
-    const cinemaPromise = cinema.movies(urls[1])
-    const dinnerPromise = dinner.restaurant(urls[2])
+    const calendarPromise = calendar.init(urls[0])
+    const cinemaPromise = cinema.init(urls[1])
+    const dinnerPromise = dinner.init(urls[2])
 
     const [days, films, food] = await Promise.all([
       calendarPromise,
       cinemaPromise,
       dinnerPromise
     ])
+
+    console.log('DAYS')
+    console.log(days)
+
+    console.log('FILMS')
+    console.log(films)
+
+    console.log('FOOD')
+    console.log(food)
   } catch (error) {
     console.error('ERROR:', error)
   }
