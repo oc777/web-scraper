@@ -15,18 +15,22 @@ if (url.length === 0) {
 }
 
 (async() => {
-  // get urls of Calendar, Cinema, Dinner pages
-  const urls = await helper.getUrls(url[0])
+  try {
+    // get urls of Calendar, Cinema, Dinner pages
+    const urls = await helper.getUrls(url[0])
 
-  const calendarPromise = calendar.html(urls[0])
-  const cinemaPromise = cinema.movies(urls[1])
-  const dinnerPromise = dinner.restaurant(urls[2])
+    const calendarPromise = calendar.html(urls[0])
+    const cinemaPromise = cinema.movies(urls[1])
+    const dinnerPromise = dinner.restaurant(urls[2])
 
-  const[days, films, food] = await Promise.all([
-    calendarPromise,
-    cinemaPromise,
-    dinnerPromise
-  ])
+    const [days, films, food] = await Promise.all([
+      calendarPromise,
+      cinemaPromise,
+      dinnerPromise
+    ])
+  } catch (error) {
+    console.error('ERROR:', error)
+  }
 })()
 
 /*
