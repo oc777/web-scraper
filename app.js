@@ -2,6 +2,7 @@
 
 const calendar = require('./lib/calendar')
 const cinema = require('./lib/cinema')
+const dinner = require('./lib/dinner')
 const helper = require('./lib/helpers')
 
 // Check that the url argument was provided
@@ -20,6 +21,13 @@ helper.getUrls(url[0])
 .then(cal => console.log(cal))        // cal [{ name:'Paul', days:['ok','OK','--']},...]
 */
 
+/*
+// cinema part
 helper.getUrls(url[0])
 .then(res => cinema.movies(res[1]))   //
 .then(cal => console.log(cal))        //
+*/
+
+helper.getUrls(url[0])
+.then(res => dinner.restaurant(res[2]))
+// .then(rest => console.log(rest))
