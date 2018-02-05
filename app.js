@@ -4,13 +4,15 @@ const calendar = require('./lib/calendar')
 const cinema = require('./lib/cinema')
 const dinner = require('./lib/dinner')
 const helper = require('./lib/helpers')
+const analyse = require('./lib/analyse')
 
+console.log('App is up and running!')
 // Check that the url argument was provided
 let url = process.argv.slice(2)
 
 // If not - exit application
 if (url.length === 0) {
-  console.log('ERROR: No URL provided.')
+  console.log('ERROR: No URL provided with "npm start url".')
   process.exit(0)
 }
 
@@ -30,14 +32,7 @@ if (url.length === 0) {
       dinnerPromise
     ])
 
-    console.log('DAYS')
-    console.log(days)
-
-    console.log('FILMS')
-    console.log(films)
-
-    console.log('FOOD')
-    console.log(food)
+    analyse.init(days, films, food)
   } catch (error) {
     console.error('ERROR:', error)
   }
