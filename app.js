@@ -19,7 +19,7 @@ if (url.length === 0) {
 (async() => {
   try {
     // get urls of Calendar, Cinema, Dinner pages
-    process.stdout.write('Fetching links...   ')
+    process.stdout.write('Fetching links...                ')
     const urls = await helper.getUrls(url[0]).then(console.log('OK'))
 
     const calendarPromise = calendar.init(urls[0])
