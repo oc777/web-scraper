@@ -6,7 +6,7 @@ const dinner = require('./lib/dinner')
 const helper = require('./lib/helpers')
 const analyse = require('./lib/analyse')
 
-console.log('App is up and running!')
+console.log('App is up and running! \n')
 // Check that the url argument was provided
 let url = process.argv.slice(2)
 
@@ -32,24 +32,11 @@ if (url.length === 0) {
       dinnerPromise
     ])
 
-    analyse.init(days, films, food)
+    await analyse.init(days, films, food).then(options => {
+      console.log('--->   All done!')
+      analyse.optionsToString(options)
+    })
   } catch (error) {
     console.error('ERROR:', error)
   }
 })()
-
-/*
-// calendar
-.then(res => calendar.html(res[0]))   // get friends' schedules
-.then(cal => console.log(cal))        // cal [{ name:'Paul', days:['ok','OK','--']},...]
-
-// cinema
-helper.getUrls(url[0])
-.then(res => cinema.movies(res[1]))   //
-.then(cal => console.log(cal))        //
-
-// dinner
-helper.getUrls(url[0])
-.then(res => dinner.restaurant(res[2]))
-// .then(rest => console.log(rest))
-*/
