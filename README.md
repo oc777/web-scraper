@@ -1,2 +1,5 @@
-# oc222ba-examination-1
-Examination assignment 1 for Olga Christensen, UDM2015
+# Web Scraper
+
+Server-based application for scraping a specific web page:
+
+In this assignment the task is to write a web scraper that scrapes but also analyzes information on some web sites to solve some specific problems.
